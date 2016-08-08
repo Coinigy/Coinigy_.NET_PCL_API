@@ -1,2 +1,2 @@
-# Coinigy_.NET_PCL_API
-A .NET PCL Library for the Coinigy API.
+# Coinigy .NET PCL API Library
+A .NET PCL (Portable Class Library) for the Coinigy API.

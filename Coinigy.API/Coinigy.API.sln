@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coinigy.API", "Coinigy.API\Coinigy.API.csproj", "{3360E850-78D9-4B1A-83CB-B1F39ACAF77A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{98781E0A-6EEE-40A6-8731-9DDBA3A1AFF0}"
+	ProjectSection(SolutionItems) = preProject
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinigyApiTester", "CoinigyApiTester\CoinigyApiTester.csproj", "{4A1111BA-A7A1-4F6F-8F4C-5DDF4AF453D0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3360E850-78D9-4B1A-83CB-B1F39ACAF77A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3360E850-78D9-4B1A-83CB-B1F39ACAF77A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3360E850-78D9-4B1A-83CB-B1F39ACAF77A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3360E850-78D9-4B1A-83CB-B1F39ACAF77A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A1111BA-A7A1-4F6F-8F4C-5DDF4AF453D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A1111BA-A7A1-4F6F-8F4C-5DDF4AF453D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A1111BA-A7A1-4F6F-8F4C-5DDF4AF453D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A1111BA-A7A1-4F6F-8F4C-5DDF4AF453D0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
