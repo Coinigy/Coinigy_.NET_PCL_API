@@ -38,6 +38,7 @@
   <ItemGroup>
     <Compile Include="CoinigyApi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Responses\addAlert_response.cs" />
     <Compile Include="Responses\refreshBalance_response.cs" />
     <Compile Include="Responses\orderTypes_response.cs" />
     <Compile Include="Responses\OrderType.cs" />

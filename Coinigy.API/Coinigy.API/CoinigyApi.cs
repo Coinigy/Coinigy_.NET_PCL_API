@@ -305,6 +305,34 @@ namespace Coinigy.API
             return JsonConvert.DeserializeObject<refreshBalance_response>(gr);
         }
 
+        public addAlert_response AddAlert(string exch_code, string market_name, string alert_price, string alert_note = "")
+        {
+            var url = "addAlert";
+            var pd = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("exch_code", exch_code),
+                new KeyValuePair<string, string>("market_name", market_name),
+                new KeyValuePair<string, string>("alert_price", alert_price),
+                new KeyValuePair<string, string>("alert_note", alert_note)
+            };
+            var gr = HttpPostRequest(url, User_Agent, pd);
+            return JsonConvert.DeserializeObject<addAlert_response>(gr);
+        }
+
+        public async Task<addAlert_response> AddAlertAsync(string exch_code, string market_name, string alert_price, string alert_note = "")
+        {
+            var url = "addAlert";
+            var pd = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("exch_code", exch_code),
+                new KeyValuePair<string, string>("market_name", market_name),
+                new KeyValuePair<string, string>("alert_price", alert_price),
+                new KeyValuePair<string, string>("alert_note", alert_note)
+            };
+            var gr = await HttpPostRequestAsync(url, User_Agent, pd);
+            return JsonConvert.DeserializeObject<addAlert_response>(gr);
+        }
+
         private string HttpPostRequest(string url, string ua, List<KeyValuePair<string, string>> postdata)
         {
             var client = new HttpClient();
