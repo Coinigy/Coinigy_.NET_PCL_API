@@ -383,6 +383,28 @@ namespace Coinigy.API
             return JsonConvert.DeserializeObject<addApiKey_response>(gr);
         }
 
+        public deleteApiKey_response DeleteApiKey(string auth_id)
+        {
+            var url = "deleteApiKey";
+            var pd = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("auth_id", auth_id)
+            };
+            var gr = HttpPostRequest(url, User_Agent, pd);
+            return JsonConvert.DeserializeObject<deleteApiKey_response>(gr);
+        }
+
+        public async Task<deleteApiKey_response> DeleteApiKeyAsync(string auth_id)
+        {
+            var url = "deleteApiKey";
+            var pd = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("auth_id", auth_id)
+            };
+            var gr = await HttpPostRequestAsync(url, User_Agent, pd);
+            return JsonConvert.DeserializeObject<deleteApiKey_response>(gr);
+        }
+
         private string HttpPostRequest(string url, string ua, List<KeyValuePair<string, string>> postdata)
         {
             var client = new HttpClient();
