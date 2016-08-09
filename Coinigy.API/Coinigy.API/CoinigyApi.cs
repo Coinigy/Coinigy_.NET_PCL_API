@@ -333,6 +333,56 @@ namespace Coinigy.API
             return JsonConvert.DeserializeObject<addAlert_response>(gr);
         }
 
+        public deleteAlert_response DeleteAlert(string alert_id)
+        {
+            var url = "deleteAlert";
+            var pd = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("alert_id", alert_id)
+            };
+            var gr = HttpPostRequest(url, User_Agent, pd);
+            return JsonConvert.DeserializeObject<deleteAlert_response>(gr);
+        }
+
+        public async Task<deleteAlert_response> DeleteAlertAsync(string alert_id)
+        {
+            var url = "deleteAlert";
+            var pd = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("alert_id", alert_id)
+            };
+            var gr = await HttpPostRequestAsync(url, User_Agent, pd);
+            return JsonConvert.DeserializeObject<deleteAlert_response>(gr);
+        }
+
+        public addApiKey_response AddApiKey(string api_key, string api_secret, string api_exch_id, string api_nickname)
+        {
+            var url = "addApiKey";
+            var pd = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("api_key", api_key),
+                new KeyValuePair<string, string>("api_secret", api_secret),
+                new KeyValuePair<string, string>("api_exch_id", api_exch_id),
+                new KeyValuePair<string, string>("api_nickname", api_nickname)
+            };
+            var gr = HttpPostRequest(url, User_Agent, pd);
+            return JsonConvert.DeserializeObject<addApiKey_response>(gr);
+        }
+
+        public async Task<addApiKey_response> AddApiKeyAsync(string api_key, string api_secret, string api_exch_id, string api_nickname)
+        {
+            var url = "addApiKey";
+            var pd = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("api_key", api_key),
+                new KeyValuePair<string, string>("api_secret", api_secret),
+                new KeyValuePair<string, string>("api_exch_id", api_exch_id),
+                new KeyValuePair<string, string>("api_nickname", api_nickname)
+            };
+            var gr = await HttpPostRequestAsync(url, User_Agent, pd);
+            return JsonConvert.DeserializeObject<addApiKey_response>(gr);
+        }
+
         private string HttpPostRequest(string url, string ua, List<KeyValuePair<string, string>> postdata)
         {
             var client = new HttpClient();
