@@ -269,6 +269,42 @@ namespace Coinigy.API
             return JsonConvert.DeserializeObject<updateTickers_response>(gr);
         }
 
+        public orderTypes_response OrderTypes()
+        {
+            var url = "orderTypes";
+            var gr = HttpPostRequest(url, User_Agent, new List<KeyValuePair<string, string>>());
+            return JsonConvert.DeserializeObject<orderTypes_response>(gr);
+        }
+
+        public async Task<orderTypes_response> OrderTypesAsync()
+        {
+            var url = "orderTypes";
+            var gr = await HttpPostRequestAsync(url, User_Agent, new List<KeyValuePair<string, string>>());
+            return JsonConvert.DeserializeObject<orderTypes_response>(gr);
+        }
+
+        public refreshBalance_response RefreshBalance(string auth_id)
+        {
+            var url = "refreshBalance";
+            var pd = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("auth_id", auth_id)
+            };
+            var gr = HttpPostRequest(url, User_Agent, pd);
+            return JsonConvert.DeserializeObject<refreshBalance_response>(gr);
+        }
+
+        public async Task<refreshBalance_response> RefreshBalanceAsync(string auth_id)
+        {
+            var url = "refreshBalance";
+            var pd = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("auth_id", auth_id)
+            };
+            var gr = await HttpPostRequestAsync(url, User_Agent, pd);
+            return JsonConvert.DeserializeObject<refreshBalance_response>(gr);
+        }
+
         private string HttpPostRequest(string url, string ua, List<KeyValuePair<string, string>> postdata)
         {
             var client = new HttpClient();
