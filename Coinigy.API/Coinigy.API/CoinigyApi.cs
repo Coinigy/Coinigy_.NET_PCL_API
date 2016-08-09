@@ -247,6 +247,28 @@ namespace Coinigy.API
             return JsonConvert.DeserializeObject<updatePrefs_response>(gr);
         }
 
+        public updateTickers_response UpdateTickers(string exch_mkt_ids)
+        {
+            var url = "updateTickers";
+            var pd = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("exch_mkt_ids", exch_mkt_ids)
+            };
+            var gr = HttpPostRequest(url, User_Agent, pd);
+            return JsonConvert.DeserializeObject<updateTickers_response>(gr);
+        }
+
+        public async Task<updateTickers_response> UpdateTickersAsync(string exch_mkt_ids)
+        {
+            var url = "updateTickers";
+            var pd = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("exch_mkt_ids", exch_mkt_ids)
+            };
+            var gr = await HttpPostRequestAsync(url, User_Agent, pd);
+            return JsonConvert.DeserializeObject<updateTickers_response>(gr);
+        }
+
         private string HttpPostRequest(string url, string ua, List<KeyValuePair<string, string>> postdata)
         {
             var client = new HttpClient();

@@ -39,6 +39,7 @@
     <Compile Include="CoinigyApi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Responses\updatePrefs_response.cs" />
+    <Compile Include="Responses\updateTickers_response.cs" />
     <Compile Include="Responses\updateUser_response.cs" />
     <Compile Include="Responses\Notification.cs" />
     <Compile Include="Responses\alerts_response.cs" />
