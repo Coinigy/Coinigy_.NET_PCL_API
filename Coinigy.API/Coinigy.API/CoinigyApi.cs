@@ -545,6 +545,34 @@ namespace Coinigy.API
             return JsonConvert.DeserializeObject<markets_response>(gr);
         }
 
+        public data_response Data(string exchange_code, string exchange_market, MarketDataType type)
+        {
+            var url = "data";
+            var typename = Enum.GetName(typeof(MarketDataType), type);
+            var pd = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("exchange_code", exchange_code),
+                new KeyValuePair<string, string>("exchange_market", exchange_market),
+                new KeyValuePair<string, string>("type", typename)
+            };
+            var gr = HttpPostRequest(url, User_Agent, pd);
+            return JsonConvert.DeserializeObject<data_response>(gr);
+        }
+
+        public async Task<data_response> DataAsync(string exchange_code, string exchange_market, MarketDataType type)
+        {
+            var url = "data";
+            var typename = Enum.GetName(typeof(MarketDataType), type);
+            var pd = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("exchange_code", exchange_code),
+                new KeyValuePair<string, string>("exchange_market", exchange_market),
+                new KeyValuePair<string, string>("type", typename)
+            };
+            var gr = await HttpPostRequestAsync(url, User_Agent, pd);
+            return JsonConvert.DeserializeObject<data_response>(gr);
+        }
+
         private string HttpPostRequest(string url, string ua, List<KeyValuePair<string, string>> postdata)
         {
             var client = new HttpClient();

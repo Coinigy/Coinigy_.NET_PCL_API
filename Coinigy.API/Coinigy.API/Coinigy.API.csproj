@@ -37,8 +37,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="CoinigyApi.cs" />
+    <Compile Include="MarketDataType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Responses\activateApiKey_response.cs" />
+    <Compile Include="Responses\Data.cs" />
+    <Compile Include="Responses\DataAsk.cs" />
+    <Compile Include="Responses\DataBid.cs" />
+    <Compile Include="Responses\DataHistory.cs" />
+    <Compile Include="Responses\data_response.cs" />
     <Compile Include="Responses\Market.cs" />
     <Compile Include="Responses\exchanges_response.cs" />
     <Compile Include="Responses\cancelOrder_response.cs" />
