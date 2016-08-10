@@ -429,6 +429,64 @@ namespace Coinigy.API
             return JsonConvert.DeserializeObject<activateApiKey_response>(gr);
         }
 
+        public activateTradingKey_response ActivateTradingKey(string auth_id, bool auth_trade = true)
+        {
+            var url = "activateTradingKey";
+            var pd = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("auth_id", auth_id),
+                new KeyValuePair<string, string>("auth_trade", Convert.ToInt32(auth_id).ToString())
+            };
+            var gr = HttpPostRequest(url, User_Agent, pd);
+            return JsonConvert.DeserializeObject<activateTradingKey_response>(gr);
+        }
+
+        public async Task<activateTradingKey_response> ActivateTradingKeyAsync(string auth_id, bool auth_trade = true)
+        {
+            var url = "activateTradingKey";
+            var pd = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("auth_id", auth_id),
+                new KeyValuePair<string, string>("auth_trade", Convert.ToInt32(auth_id).ToString())
+            };
+            var gr = await HttpPostRequestAsync(url, User_Agent, pd);
+            return JsonConvert.DeserializeObject<activateTradingKey_response>(gr);
+        }
+
+        public addOrder_response AddOrder(int auth_id, int exch_id, int mkt_id, int order_type_id, int price_type_id, decimal limit_price, decimal order_quantity)
+        {
+            var url = "addOrder";
+            var pd = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("auth_id", auth_id.ToString()),
+                new KeyValuePair<string, string>("exch_id", exch_id.ToString()),
+                new KeyValuePair<string, string>("mkt_id", mkt_id.ToString()),
+                new KeyValuePair<string, string>("order_type_id", order_type_id.ToString()),
+                new KeyValuePair<string, string>("price_type_id", price_type_id.ToString()),
+                new KeyValuePair<string, string>("limit_price", limit_price.ToString()),
+                new KeyValuePair<string, string>("order_quantity", order_quantity.ToString())
+            };
+            var gr = HttpPostRequest(url, User_Agent, pd);
+            return JsonConvert.DeserializeObject<addOrder_response>(gr);
+        }
+
+        public async Task<addOrder_response> AddOrderAsync(int auth_id, int exch_id, int mkt_id, int order_type_id, int price_type_id, decimal limit_price, decimal order_quantity)
+        {
+            var url = "addOrder";
+            var pd = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("auth_id", auth_id.ToString()),
+                new KeyValuePair<string, string>("exch_id", exch_id.ToString()),
+                new KeyValuePair<string, string>("mkt_id", mkt_id.ToString()),
+                new KeyValuePair<string, string>("order_type_id", order_type_id.ToString()),
+                new KeyValuePair<string, string>("price_type_id", price_type_id.ToString()),
+                new KeyValuePair<string, string>("limit_price", limit_price.ToString()),
+                new KeyValuePair<string, string>("order_quantity", order_quantity.ToString())
+            };
+            var gr = await HttpPostRequestAsync(url, User_Agent, pd);
+            return JsonConvert.DeserializeObject<addOrder_response>(gr);
+        }
+
         private string HttpPostRequest(string url, string ua, List<KeyValuePair<string, string>> postdata)
         {
             var client = new HttpClient();

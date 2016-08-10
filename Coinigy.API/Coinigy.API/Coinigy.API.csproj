@@ -39,6 +39,8 @@
     <Compile Include="CoinigyApi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Responses\activateApiKey_response.cs" />
+    <Compile Include="Responses\addOrder_response.cs" />
+    <Compile Include="Responses\activateTradingKey_response.cs" />
     <Compile Include="Responses\deleteApiKey_response.cs" />
     <Compile Include="Responses\addApiKey_response.cs" />
     <Compile Include="Responses\deleteAlert_response.cs" />
