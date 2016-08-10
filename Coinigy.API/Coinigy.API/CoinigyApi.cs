@@ -523,6 +523,28 @@ namespace Coinigy.API
             return JsonConvert.DeserializeObject<exchanges_response>(gr);
         }
 
+        public markets_response Markets(string exchange_code)
+        {
+            var url = "markets";
+            var pd = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("exchange_code", exchange_code)
+            };
+            var gr = HttpPostRequest(url, User_Agent, pd);
+            return JsonConvert.DeserializeObject<markets_response>(gr);
+        }
+
+        public async Task<markets_response> MarketsAsync(string exchange_code)
+        {
+            var url = "markets";
+            var pd = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("exchange_code", exchange_code)
+            };
+            var gr = await HttpPostRequestAsync(url, User_Agent, pd);
+            return JsonConvert.DeserializeObject<markets_response>(gr);
+        }
+
         private string HttpPostRequest(string url, string ua, List<KeyValuePair<string, string>> postdata)
         {
             var client = new HttpClient();
