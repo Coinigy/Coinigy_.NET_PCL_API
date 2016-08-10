@@ -573,6 +573,30 @@ namespace Coinigy.API
             return JsonConvert.DeserializeObject<data_response>(gr);
         }
 
+        public ticker_response Ticker(string exchange_code, string exchange_market)
+        {
+            var url = "ticker";
+            var pd = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("exchange_code", exchange_code),
+                new KeyValuePair<string, string>("exchange_market", exchange_market)
+            };
+            var gr = HttpPostRequest(url, User_Agent, pd);
+            return JsonConvert.DeserializeObject<ticker_response>(gr);
+        }
+
+        public async Task<ticker_response> TickerAsync(string exchange_code, string exchange_market)
+        {
+            var url = "ticker";
+            var pd = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("exchange_code", exchange_code),
+                new KeyValuePair<string, string>("exchange_market", exchange_market)
+            };
+            var gr = await HttpPostRequestAsync(url, User_Agent, pd);
+            return JsonConvert.DeserializeObject<ticker_response>(gr);
+        }
+
         private string HttpPostRequest(string url, string ua, List<KeyValuePair<string, string>> postdata)
         {
             var client = new HttpClient();
