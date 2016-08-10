@@ -405,6 +405,30 @@ namespace Coinigy.API
             return JsonConvert.DeserializeObject<deleteApiKey_response>(gr);
         }
 
+        public activateApiKey_response ActivateApiKey(string auth_id, bool auth_active = true)
+        {
+            var url = "activateApiKey";
+            var pd = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("auth_id", auth_id),
+                new KeyValuePair<string, string>("auth_active", Convert.ToInt32(auth_id).ToString())
+            };
+            var gr = HttpPostRequest(url, User_Agent, pd);
+            return JsonConvert.DeserializeObject<activateApiKey_response>(gr);
+        }
+
+        public async Task<activateApiKey_response> ActivateApiKeyAsync(string auth_id, bool auth_active = true)
+        {
+            var url = "activateApiKey";
+            var pd = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("auth_id", auth_id),
+                new KeyValuePair<string, string>("auth_active", Convert.ToInt32(auth_id).ToString())
+            };
+            var gr = await HttpPostRequestAsync(url, User_Agent, pd);
+            return JsonConvert.DeserializeObject<activateApiKey_response>(gr);
+        }
+
         private string HttpPostRequest(string url, string ua, List<KeyValuePair<string, string>> postdata)
         {
             var client = new HttpClient();
