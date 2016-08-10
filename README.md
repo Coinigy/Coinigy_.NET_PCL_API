@@ -1,5 +1,6 @@
 # Coinigy .NET PCL API Library
 [![Build status](https://ci.appveyor.com/api/projects/status/3m21w4wi59xri33d?svg=true)](https://ci.appveyor.com/project/ByronAP/coinigy-net-pcl-api)
+
 A .NET PCL (Portable Class Library) for the Coinigy API.
 API documentation can be found at: http://docs.coinigy.apiary.io/#reference/websocket-api/ticker
 
