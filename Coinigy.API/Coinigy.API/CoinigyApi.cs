@@ -1,6 +1,7 @@
 ﻿//https://lisk.io/documentation?i=lisk-docs/APIReference
 //Author: Allen Byron Penner
 //TODO: fix the way errors are handled in http methods
+
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -12,13 +13,6 @@ namespace Coinigy.API
 {
     public class CoinigyApi
     {
-        public string User_Agent { get; set; }
-        public string Server_Url { get; set; }
-
-        private string Api_Key { get; set; }
-
-        private string Api_Secret { get; set; }
-
         public CoinigyApi(string api_key, string api_secret, string serverBaseUrl = "https://www.coinigy.com/api/v1/",
             string userAgent =
                 "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36")
@@ -28,6 +22,13 @@ namespace Coinigy.API
             Api_Key = api_key;
             Api_Secret = api_secret;
         }
+
+        public string User_Agent { get; set; }
+        public string Server_Url { get; set; }
+
+        private string Api_Key { get; }
+
+        private string Api_Secret { get; }
 
         public userInfo_response UserInfo()
         {
@@ -97,7 +98,7 @@ namespace Coinigy.API
 
         public balanceHistory_response BalanceHistory(string date = "")
         {
-            if (String.IsNullOrEmpty(date))
+            if (string.IsNullOrEmpty(date))
                 date = DateTime.UtcNow.ToString("yyyy-MM-dd");
             var url = "balanceHistory";
             var pd = new List<KeyValuePair<string, string>>
@@ -110,7 +111,7 @@ namespace Coinigy.API
 
         public async Task<balanceHistory_response> BalanceHistoryAsync(string date = "")
         {
-            if (String.IsNullOrEmpty(date))
+            if (string.IsNullOrEmpty(date))
                 date = DateTime.UtcNow.ToString("yyyy-MM-dd");
             var url = "balanceHistory";
             var pd = new List<KeyValuePair<string, string>>
@@ -177,7 +178,8 @@ namespace Coinigy.API
             return JsonConvert.DeserializeObject<newsFeed_response>(gr);
         }
 
-        public updateUser_response UpdateUser(string first_name, string last_name, string company, string phone, string street1, string street2, string city, string state, string zip, string country)
+        public updateUser_response UpdateUser(string first_name, string last_name, string company, string phone,
+            string street1, string street2, string city, string state, string zip, string country)
         {
             var url = "updateUser";
             var pd = new List<KeyValuePair<string, string>>
@@ -197,7 +199,8 @@ namespace Coinigy.API
             return JsonConvert.DeserializeObject<updateUser_response>(gr);
         }
 
-        public async Task<updateUser_response> UpdateUserAsync(string first_name, string last_name, string company, string phone, string street1, string street2, string city, string state, string zip, string country)
+        public async Task<updateUser_response> UpdateUserAsync(string first_name, string last_name, string company,
+            string phone, string street1, string street2, string city, string state, string zip, string country)
         {
             var url = "updateUser";
             var pd = new List<KeyValuePair<string, string>>
@@ -217,7 +220,8 @@ namespace Coinigy.API
             return JsonConvert.DeserializeObject<updateUser_response>(gr);
         }
 
-        public updatePrefs_response UpdatePrefs(bool alert_email, bool alert_sms, bool trade_email, bool trade_sms, bool balance_email)
+        public updatePrefs_response UpdatePrefs(bool alert_email, bool alert_sms, bool trade_email, bool trade_sms,
+            bool balance_email)
         {
             var url = "updatePrefs";
             var pd = new List<KeyValuePair<string, string>>
@@ -232,7 +236,8 @@ namespace Coinigy.API
             return JsonConvert.DeserializeObject<updatePrefs_response>(gr);
         }
 
-        public async Task<updatePrefs_response> UpdatePrefsAsync(bool alert_email, bool alert_sms, bool trade_email, bool trade_sms, bool balance_email)
+        public async Task<updatePrefs_response> UpdatePrefsAsync(bool alert_email, bool alert_sms, bool trade_email,
+            bool trade_sms, bool balance_email)
         {
             var url = "updatePrefs";
             var pd = new List<KeyValuePair<string, string>>
@@ -305,7 +310,8 @@ namespace Coinigy.API
             return JsonConvert.DeserializeObject<refreshBalance_response>(gr);
         }
 
-        public addAlert_response AddAlert(string exch_code, string market_name, string alert_price, string alert_note = "")
+        public addAlert_response AddAlert(string exch_code, string market_name, string alert_price,
+            string alert_note = "")
         {
             var url = "addAlert";
             var pd = new List<KeyValuePair<string, string>>
@@ -319,7 +325,8 @@ namespace Coinigy.API
             return JsonConvert.DeserializeObject<addAlert_response>(gr);
         }
 
-        public async Task<addAlert_response> AddAlertAsync(string exch_code, string market_name, string alert_price, string alert_note = "")
+        public async Task<addAlert_response> AddAlertAsync(string exch_code, string market_name, string alert_price,
+            string alert_note = "")
         {
             var url = "addAlert";
             var pd = new List<KeyValuePair<string, string>>
@@ -369,7 +376,8 @@ namespace Coinigy.API
             return JsonConvert.DeserializeObject<addApiKey_response>(gr);
         }
 
-        public async Task<addApiKey_response> AddApiKeyAsync(string api_key, string api_secret, string api_exch_id, string api_nickname)
+        public async Task<addApiKey_response> AddApiKeyAsync(string api_key, string api_secret, string api_exch_id,
+            string api_nickname)
         {
             var url = "addApiKey";
             var pd = new List<KeyValuePair<string, string>>
@@ -453,7 +461,8 @@ namespace Coinigy.API
             return JsonConvert.DeserializeObject<activateTradingKey_response>(gr);
         }
 
-        public addOrder_response AddOrder(int auth_id, int exch_id, int mkt_id, int order_type_id, int price_type_id, decimal limit_price, decimal order_quantity)
+        public addOrder_response AddOrder(int auth_id, int exch_id, int mkt_id, int order_type_id, int price_type_id,
+            decimal limit_price, decimal order_quantity)
         {
             var url = "addOrder";
             var pd = new List<KeyValuePair<string, string>>
@@ -470,7 +479,8 @@ namespace Coinigy.API
             return JsonConvert.DeserializeObject<addOrder_response>(gr);
         }
 
-        public async Task<addOrder_response> AddOrderAsync(int auth_id, int exch_id, int mkt_id, int order_type_id, int price_type_id, decimal limit_price, decimal order_quantity)
+        public async Task<addOrder_response> AddOrderAsync(int auth_id, int exch_id, int mkt_id, int order_type_id,
+            int price_type_id, decimal limit_price, decimal order_quantity)
         {
             var url = "addOrder";
             var pd = new List<KeyValuePair<string, string>>
@@ -613,7 +623,8 @@ namespace Coinigy.API
                 : "ERROR:" + response.StatusCode + " " + response.ReasonPhrase + " | " + response.RequestMessage;
         }
 
-        private async Task<string> HttpPostRequestAsync(string url, string ua, List<KeyValuePair<string, string>> postdata)
+        private async Task<string> HttpPostRequestAsync(string url, string ua,
+            List<KeyValuePair<string, string>> postdata)
         {
             var client = new HttpClient();
             client.DefaultRequestHeaders.Add("User-Agent", ua);

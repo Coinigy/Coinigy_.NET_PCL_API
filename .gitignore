@@ -253,3 +253,10 @@ paket-files/
 
 # tests
 CoinigyApiTester/
+
+#nuget
+*.nuspec
+
+#executables
+*.bat
+*.exe
