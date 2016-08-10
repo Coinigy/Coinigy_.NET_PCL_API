@@ -487,6 +487,28 @@ namespace Coinigy.API
             return JsonConvert.DeserializeObject<addOrder_response>(gr);
         }
 
+        public cancelOrder_response CancelOrder(int internal_order_id)
+        {
+            var url = "cancelOrder";
+            var pd = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("internal_order_id", internal_order_id.ToString())
+            };
+            var gr = HttpPostRequest(url, User_Agent, pd);
+            return JsonConvert.DeserializeObject<cancelOrder_response>(gr);
+        }
+
+        public async Task<cancelOrder_response> CancelOrderAsync(int internal_order_id)
+        {
+            var url = "cancelOrder";
+            var pd = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("internal_order_id", internal_order_id.ToString())
+            };
+            var gr = await HttpPostRequestAsync(url, User_Agent, pd);
+            return JsonConvert.DeserializeObject<cancelOrder_response>(gr);
+        }
+
         private string HttpPostRequest(string url, string ua, List<KeyValuePair<string, string>> postdata)
         {
             var client = new HttpClient();
