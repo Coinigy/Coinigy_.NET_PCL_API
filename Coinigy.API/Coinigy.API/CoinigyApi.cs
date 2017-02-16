@@ -13,7 +13,7 @@ namespace Coinigy.API
 {
     public class CoinigyApi
     {
-        public CoinigyApi(string api_key, string api_secret, string serverBaseUrl = "https://www.coinigy.com/api/v1/",
+        public CoinigyApi(string api_key, string api_secret, string serverBaseUrl = "https://api.coinigy.com/api/v1/",
             string userAgent =
                 "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36")
         {
