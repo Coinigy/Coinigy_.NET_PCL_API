@@ -1,20 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
-    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3360E850-78D9-4B1A-83CB-B1F39ACAF77A}</ProjectGuid>
+    <ProjectGuid>{F3DAD3B2-D9E9-4794-86A7-550834F69F29}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Coinigy.API</RootNamespace>
     <AssemblyName>Coinigy.API</AssemblyName>
-    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
@@ -36,80 +33,86 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="CoinigyApi.cs" />
-    <Compile Include="MarketDataType.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Responses\BaseResponse.cs" />
-    <Compile Include="Responses\ticker_response.cs" />
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Responses\accounts_response.cs" />
     <Compile Include="Responses\activateApiKey_response.cs" />
+    <Compile Include="Responses\activateTradingKey_response.cs" />
+    <Compile Include="Responses\ActivityNotification.cs" />
+    <Compile Include="Responses\activity_response.cs" />
+    <Compile Include="Responses\addAlert_response.cs" />
+    <Compile Include="Responses\addApiKey_response.cs" />
+    <Compile Include="Responses\addOrder_response.cs" />
+    <Compile Include="Responses\AlertData.cs" />
+    <Compile Include="Responses\AlertHistory.cs" />
+    <Compile Include="Responses\alerts_response.cs" />
+    <Compile Include="Responses\Balance.cs" />
+    <Compile Include="Responses\BalanceHistory.cs" />
+    <Compile Include="Responses\BalanceHistoryList.cs" />
+    <Compile Include="Responses\balanceHistory_response.cs" />
+    <Compile Include="Responses\balances_response.cs" />
+    <Compile Include="Responses\BaseResponse.cs" />
+    <Compile Include="Responses\cancelOrder_response.cs" />
+    <Compile Include="CoinigyApi.cs" />
     <Compile Include="Responses\Data.cs" />
     <Compile Include="Responses\DataAsk.cs" />
     <Compile Include="Responses\DataBid.cs" />
     <Compile Include="Responses\DataHistory.cs" />
     <Compile Include="Responses\data_response.cs" />
-    <Compile Include="Responses\Market.cs" />
-    <Compile Include="Responses\exchanges_response.cs" />
-    <Compile Include="Responses\cancelOrder_response.cs" />
-    <Compile Include="Responses\addOrder_response.cs" />
-    <Compile Include="Responses\activateTradingKey_response.cs" />
-    <Compile Include="Responses\deleteApiKey_response.cs" />
-    <Compile Include="Responses\addApiKey_response.cs" />
     <Compile Include="Responses\deleteAlert_response.cs" />
-    <Compile Include="Responses\addAlert_response.cs" />
+    <Compile Include="Responses\deleteApiKey_response.cs" />
     <Compile Include="Responses\Exchange.cs" />
-    <Compile Include="Responses\markets_response.cs" />
-    <Compile Include="Responses\refreshBalance_response.cs" />
-    <Compile Include="Responses\orderTypes_response.cs" />
-    <Compile Include="Responses\OrderType.cs" />
-    <Compile Include="Responses\OrderTypes.cs" />
-    <Compile Include="Responses\PriceType.cs" />
-    <Compile Include="Responses\Ticker.cs" />
-    <Compile Include="Responses\updatePrefs_response.cs" />
-    <Compile Include="Responses\updateTickers_response.cs" />
-    <Compile Include="Responses\updateUser_response.cs" />
-    <Compile Include="Responses\Notification.cs" />
-    <Compile Include="Responses\alerts_response.cs" />
-    <Compile Include="Responses\AlertData.cs" />
-    <Compile Include="Responses\AlertHistory.cs" />
-    <Compile Include="Responses\BalanceHistoryList.cs" />
-    <Compile Include="Responses\balanceHistory_response.cs" />
-    <Compile Include="Responses\BalanceHistory.cs" />
-    <Compile Include="Responses\balances_response.cs" />
     <Compile Include="Responses\ExchangeAccount.cs" />
-    <Compile Include="Responses\Balance.cs" />
+    <Compile Include="Responses\exchanges_response.cs" />
+    <Compile Include="Responses\Market.cs" />
+    <Compile Include="MarketDataType.cs" />
+    <Compile Include="Responses\markets_response.cs" />
     <Compile Include="Responses\newsFeed_response.cs" />
     <Compile Include="Responses\NewsItem.cs" />
-    <Compile Include="Responses\ActivityNotification.cs" />
+    <Compile Include="Responses\Notification.cs" />
     <Compile Include="Responses\OpenAlert.cs" />
     <Compile Include="Responses\OpenOrder.cs" />
     <Compile Include="Responses\OrderHistory.cs" />
     <Compile Include="Responses\Orders.cs" />
-    <Compile Include="Responses\UserInfo.cs" />
-    <Compile Include="Responses\activity_response.cs" />
-    <Compile Include="Responses\accounts_response.cs" />
     <Compile Include="Responses\orders_response.cs" />
+    <Compile Include="Responses\OrderType.cs" />
+    <Compile Include="Responses\OrderTypes.cs" />
+    <Compile Include="Responses\orderTypes_response.cs" />
+    <Compile Include="Responses\PriceType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Responses\refreshBalance_response.cs" />
+    <Compile Include="Responses\Ticker.cs" />
+    <Compile Include="Responses\ticker_response.cs" />
+    <Compile Include="Responses\updatePrefs_response.cs" />
+    <Compile Include="Responses\updateTickers_response.cs" />
+    <Compile Include="Responses\updateUser_response.cs" />
+    <Compile Include="Responses\UserInfo.cs" />
     <Compile Include="Responses\userInfo_response.cs" />
     <Compile Include="Responses\userWatchList_response.cs" />
     <Compile Include="Responses\WatchedItem.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Net.Http.Extensions, Version=1.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net45+win8+wpa81\System.Net.Http.Extensions.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net45+win8+wpa81\System.Net.Http.Primitives.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
@@ -117,11 +120,4 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
   </Target>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>
